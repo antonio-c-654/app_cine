@@ -1,0 +1,12 @@
+<%- include('partials/header') %>
+<%- include('partials/nav_bar_logout') %>
+
+<div class="bg-green-200 w-screen h-[90vh] flex flex-col items-center justify-center gap-4">
+
+    <h1 class="text-2xl">Bienvenido al panel de admin, <%= user.email %>!</h1>
+    <img src="<%= user.imagen %>" class="w-[200px]">
+    <p>Nº de visitas: <%= user.visitas %></p>
+
+</div>
+
+<%- include('partials/footer') %>
