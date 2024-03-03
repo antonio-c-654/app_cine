@@ -1,0 +1,16 @@
+<%- include('partials/header') %>
+<%- include('partials/nav_bar') %>
+
+<div class="bg-green-200 w-screen h-[90vh] flex flex-col items-center justify-evenly">
+    <h1 class="text-2xl">Login</h1>
+
+    <form action="/login" method="post" class="flex flex-col gap-6">
+        <input type="text" name="email" placeholder="email" class="rounded-md p-2">
+        <input type="text" name="password" placeholder="password" class="rounded-md p-2">
+        <button type="submit" class="text-white border bg-blue-400 rounded-md py-2 px-4 cursor-pointer">Login</button>
+    </form>
+
+    <img src="/images/imagen_2.jpg" class="w-[200px]">
+</div>
+
+<%- include('partials/footer') %>

@@ -1,0 +1,20 @@
+[
+    {
+        "email": "pepe",
+        "password": "",
+        "password_sin_hash": "pepe",
+        "imagen": "https://img.freepik.com/foto-gratis/retrato-hombre-reir_23-2148859448.jpg?w=740&t=st=1708718902~exp=1708719502~hmac=06f2817e5814f11d5b2aaff09ebb7ac99ca87e6b592ae7a62dc5f4dc82f6193e",
+        "esAdmin": false,
+        "visitas": 0,
+        "favoritos": []
+    },
+    {
+        "email": "paco",
+        "password": "",
+        "password_sin_hash": "paco",
+        "imagen": "https://img.freepik.com/foto-gratis/guy-worldface-britanico-fondo-blanco_53876-14467.jpg?w=740&t=st=1708718905~exp=1708719505~hmac=7675f94243b48ae5b08e193e70f9db108b817fd464ec64a8465fe901111dad6a",
+        "esAdmin": true,
+        "visitas": 0,
+        "favoritos": []
+    }
+]
