@@ -1,0 +1,12 @@
+[
+    {
+        "id_peli": 0,
+        "nombre": "Dune",
+        "portada": "https://www.neimhaim.com/wp-content/uploads/2021/09/dune_villeneuve-600x600.jpg"
+    },
+    {
+        "id_peli": 1,
+        "nombre": "Hobbit",
+        "portada": "https://i.discogs.com/U01LIie2WGVnM7VasS7D8YtWyzFDV2vekMoO6qQGKXQ/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTgyNTU4/MTItMTU1OTg5ODkx/Mi00NDY2LmpwZWc.jpeg"
+    }
+]

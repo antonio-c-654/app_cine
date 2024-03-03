@@ -11,8 +11,8 @@ const fs = require('fs')
 let usuarios_json = fs.readFileSync('./usuarios.json', 'utf-8')
 let usuarios_obj = JSON.parse(usuarios_json)
 
-// let peliculas_json = fs.readFileSync('./peliculas.json', 'utf-8')
-// let peliculas_obj = JSON.parse(peliculas_json)
+let peliculas_json = fs.readFileSync('./peliculas.json', 'utf-8')
+let peliculas_obj = JSON.parse(peliculas_json)
 
 const bcryptjs = require('bcryptjs')
 
@@ -24,13 +24,13 @@ let guardar_JSON_users = () => {
     console.log(error)
   }
 }
-// let guardar_JSON_productos = () => {
-//   try {
-//     fs.writeFileSync('./peliculas.json', JSON.stringify(usuarios_obj), 'utf-8')
-//   } catch (error) {
-//     console.log(error)
-//   }
-// }
+let guardar_JSON_productos = () => {
+  try {
+    fs.writeFileSync('./peliculas.json', JSON.stringify(usuarios_obj), 'utf-8')
+  } catch (error) {
+    console.log(error)
+  }
+}
 let aumentarVisitas = (encontrado) => {
   try {
     usuarios_obj.find(u => u.email == encontrado.email).visitas++
@@ -114,8 +114,9 @@ router.post('/deleteUser', (req, res) => {
   guardar_JSON_users()
   res.render('login') //borrar a alguien te manda a login, asi puedes borrarte a ti mismo
 })
-router.get('/allObj', (req, res) => {
-  res.render('allObj')
+router.post('/allObj/:email', (req, res) => {
+  const encontr = usuarios_obj.find(u => u.email == req.params.email)
+  res.render('allObj', {objetos: peliculas_obj, user: encontr})
 })
 
 

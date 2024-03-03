@@ -7,9 +7,11 @@
     <img src="<%= user.imagen %>" class="w-[200px]">
     
     <form action="/allUsers/<%= user.email %>" method="post">
-        <button type="submit" name="clave_hash" value="<%= user.password %>">Ver usuarios registrados</button>
+        <button type="submit" name="clave_hash" value="<%= user.password %>" class="text-blue-600 underline">Ver usuarios registrados</button>
     </form>
-    <a href="/allObj">Ver todos los objetos</a>
+    <form action="/allObj/<%= user.email %>" method="post">
+        <button type="submit" name="clave_hash" value="<%= user.password %>" class="text-blue-600 underline">Ver todos los objetos</button>
+    </form>
 
 </div>
 
