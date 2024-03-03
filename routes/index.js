@@ -14,7 +14,7 @@ let usuarios_obj = JSON.parse(usuarios_json)
 let peliculas_json = fs.readFileSync('./peliculas.json', 'utf-8')
 let peliculas_obj = JSON.parse(peliculas_json)
 
-const bcryptjs = require('bcryptjs')
+const bcryptjs = require('bcryptjs');
 
 // -- Funciones --
 let guardar_JSON_users = () => {
@@ -119,5 +119,34 @@ router.post('/allObj/:email', (req, res) => {
   res.render('allObj', {objetos: peliculas_obj, user: encontr})
 })
 
+// Recuperar password token jwt
+router.get('/recuperar', (req, res) => {
+  res.render('recuperar')
+})
+router.post('/recuperar', (req, res) => {
+  const encontrado = usuarios_obj.find(u => u.email == req.body.email)
+  if (encontrado) {
+    const mi_token = jwt.sign({encontrado}, process.env.SECRET_KEY, {expiresIn: '30m'})
+    res.render('mostrarToken', {token: mi_token})
+  } else {
+    res.sendStatus(404) //user no existe con ese mail
+  }
+})
+router.get('/cambiar_pass/:token', (req, res) => {
+  const my_token = req.params.token
+  const valido = jwt.verify(my_token, process.env.SECRET_KEY)
+  if (valido) {
+    res.render('newPassword')  //formulario cambiar contraseña
+  } else {
+    res.sendStatus(404) //enlace token no valido
+  }
+})
+router.get('/newPassword', (req, res) => {
+  res.render('newPassword')
+})
+router.post('/newPassword', (req, res) => {
+  // aqui cambias la contraseña del user
+  res.render('newPassword')
+})
 
 module.exports = router;
