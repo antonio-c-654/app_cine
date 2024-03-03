@@ -97,6 +97,26 @@ router.post('/register', async (req, res) => {
   }
 })
 
+router.post('/allUsers/:email', (req, res) => {
+  console.log('solicitando users...')
+  const encontr = usuarios_obj.find(u => u.email == req.params.email)
+  const esValido = bcryptjs.compare(encontr.password, req.body.clave_hash)
+
+  if (esValido && encontr.esAdmin) {
+    res.render('allUsers', {usuarios: usuarios_obj, user: encontr})
+  } else {
+    res.sendStatus(403)
+  }
+})
+router.post('/deleteUser', (req, res) => {
+  // console.log('borrar a', req.body.email_borrar)
+  usuarios_obj = usuarios_obj.filter(u => u.email != req.body.email_borrar)
+  guardar_JSON_users()
+  res.render('login') //borrar a alguien te manda a login, asi puedes borrarte a ti mismo
+})
+router.get('/allObj', (req, res) => {
+  res.render('allObj')
+})
 
 
 module.exports = router;
